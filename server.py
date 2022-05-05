@@ -15,3 +15,6 @@ print("Client Address : ", clientAddress)
 
 ser_msg = client.recv(1024)
 print(clientAddress, ":", ser_msg.decode('UTF-8'))
+
+ser_msg = b"Hi Client"
+client.send(ser_msg)
