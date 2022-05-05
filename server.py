@@ -15,12 +15,16 @@ print("Client Address  1 : ", clientAddress)
 # print(f"Client Address 2 : {clientAddress}")
 
 while True:
-    ser_msg = client.recv(1024)
-    print(clientAddress, ":", ser_msg.decode('UTF-8'))
+    ser_msg = client.recv(1024).decode('UTF-8')
+    print(clientAddress, ":", ser_msg)
 
     # manual input data ------------------------------------------
     # ser_msg = b"Hi Client"
     # client.send(ser_msg)
+
+    # shutdown server --------------------------------------------
+    if ser_msg == 'bye':
+        break
 
     # user input data ---------------------------------------------
     ser_msg = input("enter message for client : ").encode('UTF-8')

@@ -18,5 +18,9 @@ while True:
     cl_msg = input("enter message for server : ")
     client.send(cl_msg.encode('UTF-8'))
 
+    # shutdown server --------------------------------------------
+    if cl_msg == 'bye':
+        break
+
     cl_msg = client.recv(1024)
     print("Server : ", cl_msg.decode('UTF-8'))
