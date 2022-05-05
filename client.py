@@ -5,9 +5,11 @@
 import socket
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(("localhost", 2317))
+host = "localhost"
+port = 2317
+client.connect((host, port))
 
-print("you connected to server...!")
+print('\033[1m' + 'you connected to server...!' + '\033[0m')
 
 while True:
     # manual input data ------------------------------------------
@@ -15,7 +17,7 @@ while True:
     # client.send(cl_msg.encode('UTF-8'))
 
     # user input data --------------------------------------------
-    cl_msg = input("enter message for server : ")
+    cl_msg = input("Enter message for server : ")
     client.send(cl_msg.encode('UTF-8'))
 
     # shutdown server --------------------------------------------

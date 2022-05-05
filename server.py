@@ -5,10 +5,13 @@
 import socket
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("localhost", 2317))
+host = "localhost"
+port = 2317
+server.bind((host, port))
 server.listen()
 
-print("Waiting for a client...")
+print('\033[1m' + 'Waiting for a client...!' + '\033[0m')
+
 
 client, clientAddress = server.accept()
 print("Client Address  1 : ", clientAddress)
@@ -27,5 +30,5 @@ while True:
         break
 
     # user input data ---------------------------------------------
-    ser_msg = input("enter message for client : ").encode('UTF-8')
+    ser_msg = input("Enter message for client : ").encode('UTF-8')
     client.send(ser_msg)
